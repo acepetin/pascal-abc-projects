@@ -1,4 +1,4 @@
 ﻿program HelloGitHub;
 begin
-  writeln('Привет, GitHub!');
+  writeln('Привет, GitHub)))!');
 end.
