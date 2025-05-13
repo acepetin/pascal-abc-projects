@@ -1,44 +1,23 @@
-﻿unit Set_of_boolean;
+﻿unit Unit_dop;
 
 interface
+uses
+// Set_of_char;
+//Set_of_boolean;
+//Set_of_record;
 
-type Tset = array[1..256] of boolean;
+procedure input(var S:Tset;var f: Text);
 
-procedure Name(var name: string);
-procedure Create(var S:Tset);
-function IsIn(ch:char;const S:Tset):boolean;
-procedure AddSet(ch:char;var S:Tset);
-procedure DelSet(ch:char;var S:Tset);
 
-implementation 
-
-procedure Name(var name: string);
+implementation
+procedure input(var S:Tset;var f: Text);
+var
+ch : char;
 begin
-  name := 'Set_of_boolean';
-end;
-
-procedure Create(var S:Tset);
-var 
-i:integer;
-begin
-    for i:=1 to 256 do 
-        s[i] := False;
-end;
-
-procedure AddSet(ch:char;var S:Tset);
-begin
-    if not IsIn(ch,S) then 
-        S[Ord(ch)+1] := True;  
-end;
-
-procedure DelSet(ch:char;var S:Tset);
-begin
-    if  IsIn(ch,S) then 
-        S[Ord(ch)+1] := False;  
-end;
-
-function IsIn(ch:char;const S:Tset):boolean;
-begin
-    IsIn := S[Ord(ch)+1];
+  while not eof(f) do
+  begin
+    read(f, ch);
+    AddSet(ch,S);
+  end;
 end;
 end.
